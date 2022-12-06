@@ -1,3 +1,18 @@
+# ------------- WIP ------------------
+### Hours worked : 2
+
+TODO :
+- get and display remote data
+- 
+
+NICE TO HAVE :
+- A lib that would read QR code
+- CICD
+- THEME Management
+- UI
+
+# ------------- WIP ------------------
+
 # Food facts app !
 
 Description here
@@ -20,3 +35,4 @@ We usually tag branches with some convention name in order to trigger actions on
 ### Convention
 In this project, the feature branches have been named : 'ANDX-name-of-feature'
 The goal is to have a unique 'X' id for every feature so we keep track of who is working on which issue and what is the status (When working in agile team with a kanban board)
+

@@ -1,0 +1,32 @@
+// declaring versions of the libraries
+ext.libs = [:]
+def versions = [:]
+versions.hilt = '2.38.1'
+versions.retrofit = '2.9.0'
+versions.gson = '2.9.0'
+versions.navigation = '2.5.1'
+versions.material = '1.6.1'
+versions.appCompat = '1.4.2'
+
+// declaring the dependencies
+def libs = [:]
+
+def hilt = [:]
+hilt.android = "com.google.dagger:hilt-android:$versions.hilt"
+hilt.compiler = "com.google.dagger:hilt-compiler:$versions.hilt"
+libs.hilt = hilt
+
+def retrofit = [:]
+retrofit.core = "com.squareup.retrofit2:retrofit:$versions.retrofit"
+retrofit.converter = "com.squareup.retrofit2:converter-gson:$versions.retrofit"
+libs.retrofit = retrofit
+
+libs.gson = "com.google.code.gson:gson:$versions.gson"
+
+libs.navigation = "androidx.navigation:navigation-fragment-ktx:$versions.navigation"
+
+libs.material = "com.google.android.material:material:$versions.material"
+
+libs.appCompat = "androidx.appcompat:appcompat:$versions.appCompat"
+
+ext.libs = libs

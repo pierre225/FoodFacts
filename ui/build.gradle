@@ -1,0 +1,21 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+}
+
+android {
+    // View Binding
+    buildFeatures { viewBinding true }
+}
+
+dependencies {
+    implementation project(":domain")
+
+    kapt libs.hilt.compiler
+    implementation libs.hilt.android
+    implementation libs.navigation
+    implementation libs.material
+    implementation libs.appCompat
+}

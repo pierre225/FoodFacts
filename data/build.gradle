@@ -1,0 +1,15 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+}
+
+dependencies {
+    kapt libs.hilt.compiler
+    implementation libs.hilt.android
+
+    implementation libs.retrofit.converter
+    implementation libs.retrofit.core
+    implementation libs.gson
+}
