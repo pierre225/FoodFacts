@@ -1,4 +1,4 @@
-package com.pierre.songs.ui.base
+package com.pierre.ui.base
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -43,20 +43,7 @@ abstract class BaseFragment: Fragment() {
     }
 
     /**
-     * Displays the error in a Snackbar, if there is a retry action, the Snackbar
-     * will be indefinite to let the user try again
-     */
-    protected fun displayError(@StringRes message: Int, retry: OnClickListener?) {
-        displayLoading(false)
-        Snackbar.make(
-            baseBinding.baseRoot,
-            getString(message),
-            if (retry != null) Snackbar.LENGTH_INDEFINITE else Snackbar.LENGTH_LONG)
-            .setAction(R.string.retry, retry).show()
-    }
-
-    /**
-     * Shows or hides a loader at the bottom of the screen
+     * Shows or hides a loader
      */
     protected fun displayLoading(display: Boolean) {
         baseBinding.baseLoader.visibility =

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--  Dark mode colors (In this example the colors are almost the same) -->
-    <color name="songs_fragment_background">@color/white_80</color>
+    <color name="background">@color/black</color>
 </resources>

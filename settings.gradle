@@ -5,6 +5,8 @@ pluginManagement {
         mavenCentral()
     }
 }
+
+// Only allow repositories to be declared in settings.gradle
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
@@ -12,5 +14,9 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "My Application"
+
+rootProject.name = "FoodFacts"
 include ':app'
+include ':ui'
+include ':domain'
+include ':data'

@@ -1,8 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="songs_list_app">Songs list</string>
-    <string name="retry">Retry</string>
-    <string name="io_exception_message">Check you connection</string>
-    <string name="internal_exception_message">Internal issue, please try again later</string>
-    <string name="welcome_to_the_song_app">Welcome to the songs app</string>
+
 </resources>

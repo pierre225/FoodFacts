@@ -1,7 +1,7 @@
-package com.pierre.songs
+package com.pierre.foodfacts
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp
-class SongsApplication : Application()
+class FoodFactsApplication : Application()

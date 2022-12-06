@@ -4,62 +4,26 @@ def versions = [:]
 versions.hilt = '2.38.1'
 versions.retrofit = '2.9.0'
 versions.gson = '2.9.0'
-versions.room = '2.4.3'
 versions.navigation = '2.5.1'
-versions.glide = '4.13.2'
 versions.material = '1.6.1'
 versions.appCompat = '1.4.2'
-versions.paging = '3.1.1'
-versions.mockk = '1.12.5'
-versions.junit = '4.13.2'
-versions.testingCoroutines = '1.6.4'
-versions.testCore = '1.4.0'
-versions.espresso = '3.4.0'
-versions.extJunit = '1.1.3'
 
 // declaring the dependencies
 def libs = [:]
-
-def room = [:]
-room.runtime = "androidx.room:room-runtime:$versions.room"
-room.compiler = "androidx.room:room-compiler:$versions.room"
-room.ktx = "androidx.room:room-ktx:$versions.room"
-room.paging = "androidx.room:room-paging:$versions.room"
-libs.room = room
 
 def hilt = [:]
 hilt.android = "com.google.dagger:hilt-android:$versions.hilt"
 hilt.compiler = "com.google.dagger:hilt-compiler:$versions.hilt"
 libs.hilt = hilt
 
-def paging = [:]
-paging.common = "androidx.paging:paging-common:$versions.paging"
-paging.runtime = "androidx.paging:paging-runtime:$versions.paging"
-libs.paging = paging
-
 def retrofit = [:]
 retrofit.core = "com.squareup.retrofit2:retrofit:$versions.retrofit"
 retrofit.converter = "com.squareup.retrofit2:converter-gson:$versions.retrofit"
 libs.retrofit = retrofit
 
-def testing = [:]
-testing.mockk = "io.mockk:mockk:$versions.mockk"
-testing.junit = "junit:junit:$versions.junit"
-testing.coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-test:$versions.testingCoroutines"
-libs.testing = testing
-
-def androidTesting = [:]
-androidTesting.testCore = "androidx.test:core-ktx:$versions.testCore"
-androidTesting.espresso = "androidx.test.espresso:espresso-core:$versions.espresso"
-androidTesting.hilt = "com.google.dagger:hilt-android-testing:$versions.hilt"
-androidTesting.extJunit = "androidx.test.ext:junit:$versions.extJunit"
-libs.androidTesting = androidTesting
-
 libs.gson = "com.google.code.gson:gson:$versions.gson"
 
 libs.navigation = "androidx.navigation:navigation-fragment-ktx:$versions.navigation"
-
-libs.glide = "com.github.bumptech.glide:glide:$versions.glide"
 
 libs.material = "com.google.android.material:material:$versions.material"
 

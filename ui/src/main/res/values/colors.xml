@@ -5,10 +5,7 @@
     <color name="white_80">#CCFFFFFF</color>
     <color name="black">#000000</color>
     <color name="black_80">#CC000000</color>
-    <color name="orange_1">#FBE4D0</color>
-    <color name="orange_2">#F29449</color>
-    <color name="orange_3">#EE7811</color>
 
     <!--  values that are also defined in dark mode  -->
-    <color name="songs_fragment_background">@color/white</color>
+    <color name="background">@color/white</color>
 </resources>

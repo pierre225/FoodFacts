@@ -14,14 +14,8 @@ dependencies {
     implementation project(":domain")
 
     kapt libs.hilt.compiler
-    implementation libs.paging.runtime
     implementation libs.hilt.android
     implementation libs.navigation
-    implementation libs.glide
     implementation libs.material
     implementation libs.appCompat
-
-    testImplementation libs.testing.mockk
-    testImplementation libs.testing.junit
-    testImplementation libs.testing.coroutines
 }

@@ -1,7 +1,5 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.Songs" parent="Theme.AppCompat.NoActionBar">
-        <!-- Status bar color. -->
-        <item name="android:statusBarColor">@color/orange_3</item>
+    <style name="Theme.FoodFacts" parent="Theme.AppCompat.NoActionBar">
     </style>
 </resources>
