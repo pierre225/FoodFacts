@@ -1,9 +1,11 @@
 # ------------- WIP ------------------
-### Hours worked : 6
+### Hours worked : 10
 
 TODO :
 - bar code scanner
-- rework state to 
+- rework errors
+- rework with custom views
+- tests
 
 NICE TO HAVE :
 - error state as a card
