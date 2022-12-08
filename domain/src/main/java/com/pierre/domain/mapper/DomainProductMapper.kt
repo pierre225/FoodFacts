@@ -1,20 +1,16 @@
 package com.pierre.domain.mapper
 
-import androidx.paging.PagingData
-import androidx.paging.map
-import com.pierre.data.repository.model.DataSong
-import com.pierre.domain.model.DomainSong
+import com.pierre.data.remote.models.RemoteProductResponse
+import com.pierre.domain.model.DomainProduct
 
-class SongsDomainMapper {
+class DomainProductMapper {
 
-    fun toDomain(dataSong: DataSong) = DomainSong(
-        id = dataSong.id,
-        title = dataSong.title,
-        imageUrl = dataSong.imageUrl,
-        thumbnailUrl = dataSong.thumbnailUrl
+    fun toDomain(dataProduct: RemoteProductResponse.RemoteProduct) = DomainProduct(
+        code = dataProduct.code,
+        name = dataProduct.name,
+        brand = dataProduct.brands,
+        description = dataProduct.categories,
+        imageUrl = dataProduct.imageUrl,
+        ingredients = dataProduct.ingredients,
     )
-
-    fun mapPagingDataToDomain(pagingData: PagingData<out DataSong>) =
-        pagingData.map { toDomain(it) }
-
 }

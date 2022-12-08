@@ -2,4 +2,7 @@
 <resources>
     <!--  Dark mode colors (In this example the colors are almost the same) -->
     <color name="background">@color/black</color>
+    <color name="semi_background">@color/dark_grey</color>
+    <color name="foreground">@color/white</color>
+    <color name="semi_foreground">@color/light_gray</color>
 </resources>

@@ -11,5 +11,6 @@ dependencies {
 
     implementation libs.retrofit.converter
     implementation libs.retrofit.core
+    implementation libs.loggingInterceptor
     implementation libs.gson
 }

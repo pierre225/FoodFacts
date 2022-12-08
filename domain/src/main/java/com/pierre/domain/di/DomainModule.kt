@@ -1,11 +1,10 @@
 package com.pierre.domain.di
 
-import com.pierre.data.repository.SongsRepository
-import com.pierre.domain.usecases.GetPagedSongsUseCase
-import com.pierre.domain.mapper.SongsDomainMapper
-import com.pierre.domain.usecases.GetPagedSongsUseCaseImpl
-import com.pierre.domain.usecases.PreloadSongsUseCase
-import com.pierre.domain.usecases.PreloadSongsUseCaseImpl
+import com.pierre.data.remote.RemoteDataSource
+import com.pierre.domain.repository.ProductsRepository
+import com.pierre.domain.mapper.DomainProductMapper
+import com.pierre.domain.repository.ProductsRepositoryImpl
+import com.pierre.domain.usecases.*
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -17,17 +16,17 @@ import javax.inject.Singleton
 object DomainModule {
 
     @Provides
-    fun domainMapper() = SongsDomainMapper()
+    fun domainMapper() = DomainProductMapper()
 
     @Provides
-    fun getPagedSongsUseCase(
-        repository: SongsRepository,
-        domainMapper: SongsDomainMapper
-    ): GetPagedSongsUseCase = GetPagedSongsUseCaseImpl(repository, domainMapper)
+    fun searchProductUseCase(
+        repository: ProductsRepository,
+    ): SearchProductUseCase = SearchProductUseCaseImpl(repository)
 
     @Provides
-    fun preloadSongUseCase(
-        repository: SongsRepository,
-    ): PreloadSongsUseCase = PreloadSongsUseCaseImpl(repository)
-
+    @Singleton
+    fun productsRepository(
+        remoteDataSource: RemoteDataSource,
+        domainMapper: DomainProductMapper,
+    ): ProductsRepository = ProductsRepositoryImpl(remoteDataSource, domainMapper)
 }

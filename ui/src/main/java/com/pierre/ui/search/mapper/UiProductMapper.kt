@@ -1,19 +1,15 @@
-package com.pierre.songs.ui.songslist.mapper
+package com.pierre.ui.search.mapper
 
-import androidx.paging.PagingData
-import androidx.paging.map
-import com.pierre.domain.model.DomainSong
-import com.pierre.songs.ui.songslist.model.UiSong
+import com.pierre.domain.model.DomainProduct
+import com.pierre.ui.search.model.UiProduct
 
-class SongsUiMapper {
+class UiProductMapper {
 
-    private fun toUi(domainSong: DomainSong) = UiSong(
-        id = domainSong.id,
-        title = domainSong.title,
-        image = domainSong.imageUrl,
-        preview = domainSong.thumbnailUrl
-    )
-
-    fun mapPagingDataToDomain(pagingData: PagingData<DomainSong>) =
-        pagingData.map { toUi(it) }
+    fun toUi(domainProduct: DomainProduct) = UiProduct(
+        code = domainProduct.code,
+        name = domainProduct.name,
+        brand = domainProduct.brand,
+        description = domainProduct.description,
+        imageUrl = domainProduct.imageUrl,
+        ingredients = domainProduct.ingredients)
 }

@@ -1,11 +1,10 @@
-package com.pierre.songs.ui.splash.model
+package com.pierre.ui.search.model
 
-import androidx.annotation.StringRes
+sealed class SearchState {
 
-sealed class PreloadState {
-
-    object Loading : PreloadState()
-    object Success : PreloadState()
-    data class Error(@StringRes val message: Int, val retry: Boolean) : PreloadState()
+    object Loading : SearchState()
+    object Initial : SearchState()
+    data class Success(val uiProduct: UiProduct) : SearchState()
+    data class Error(val e: Exception) : SearchState()
 
 }

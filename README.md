@@ -1,15 +1,17 @@
 # ------------- WIP ------------------
-### Hours worked : 2
+### Hours worked : 6
 
 TODO :
-- get and display remote data
-- 
+- bar code scanner
+- rework state to 
 
 NICE TO HAVE :
-- A lib that would read QR code
+- error state as a card
+- Product card view could be a custom view
 - CICD
 - THEME Management
 - UI
+- list of ingredients instead of string
 
 # ------------- WIP ------------------
 

@@ -1,33 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/baseRoot"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/white"
-    android:animateLayoutChanges="true">
+    android:layout_width="0dp"
+    android:layout_height="@dimen/initial_card_height"
+    android:layout_margin="@dimen/spacing_large"
+    android:padding="@dimen/spacing_large"
+    app:cardBackgroundColor="@color/semi_background"
+    app:cardCornerRadius="@dimen/search_card_corner_radius"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHeight_default="spread"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/search"
+    app:layout_constraintWidth_default="spread">
 
-    <FrameLayout
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:id="@+id/baseContainer"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
 
-    <com.google.android.material.progressindicator.CircularProgressIndicator
-        android:id="@+id/baseLoader"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:visibility="gone"
-        android:layout_margin="@dimen/spacing_x_large"
-        android:indeterminate="true"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="@dimen/spacing_normal"
+            android:padding="@dimen/spacing_small"
+            android:text="@string/you_can_start_searching_for_a_bar_code"
+            android:textColor="@color/foreground"
+            android:textSize="@dimen/text_normal" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/initial_image_size"
+            android:src="@drawable/ic_search"
+            app:tint="@color/foreground" />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

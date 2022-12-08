@@ -1,24 +1,42 @@
 package com.pierre.ui.search
 
-import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import androidx.viewbinding.ViewBinding
-import com.pierre.ui.base.BaseFragment
-import com.pierre.ui.databinding.FragmentSearchBinding
-import dagger.hilt.android.AndroidEntryPoint
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.pierre.domain.usecases.SearchProductUseCase
+import com.pierre.ui.search.mapper.UiProductMapper
+import com.pierre.ui.search.model.SearchState
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-@AndroidEntryPoint
-class SearchFragment : BaseFragment() {
+@HiltViewModel
+class SearchViewModel @Inject constructor(
+    private val searchProductUseCase: SearchProductUseCase,
+    private val mapper: UiProductMapper
+) : ViewModel() {
 
-    private lateinit var binding: FragmentSearchBinding
+    private val _state = MutableStateFlow<SearchState>(SearchState.Initial)
+    val state: StateFlow<SearchState> = _state
 
-    override fun initBinding(inflater: LayoutInflater): ViewBinding {
-        binding = FragmentSearchBinding.inflate(inflater)
-        return binding
+    fun search(code: String) {
+        viewModelScope.launch {
+            _state.emit(SearchState.Loading)
+            try { searchProduct(code) }
+            catch (e: Exception) { onError(e) }
+        }
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    fun codeIsValid(code: String) =
+        code.length >= 12
+
+    private suspend fun searchProduct(code: String) {
+        val product = mapper.toUi(searchProductUseCase.invoke(code))
+        _state.emit(SearchState.Success(product))
+    }
+
+    private suspend fun onError(e: Exception) {
+        _state.emit(SearchState.Error(e))
     }
 }

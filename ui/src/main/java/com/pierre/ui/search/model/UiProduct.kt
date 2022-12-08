@@ -1,8 +1,10 @@
-package com.pierre.songs.ui.songslist.model
+package com.pierre.ui.search.model
 
-data class UiSong(
-    val id: Int,
-    val title: String,
-    val image: String,
-    val preview: String
+data class UiProduct(
+    val code: String,
+    val name: String,
+    val brand: String,
+    val description: String?,
+    val imageUrl: String?,
+    val ingredients: String?,
 )
