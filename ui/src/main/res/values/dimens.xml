@@ -16,5 +16,9 @@
     <dimen name="text_normal">12sp</dimen>
     <dimen name="text_large">16sp</dimen>
     <dimen name="text_x_large">24sp</dimen>
+    <dimen name="product_image_height">300dp</dimen>
+    <dimen name="search_card_corner_radius">8dp</dimen>
+    <dimen name="initial_card_height">300dp</dimen>
+    <dimen name="initial_image_size">100dp</dimen>
 
 </resources>
