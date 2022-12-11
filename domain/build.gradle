@@ -10,4 +10,8 @@ dependencies {
 
     kapt libs.hilt.compiler
     implementation libs.hilt.android
+
+    testImplementation libs.testing.mockk
+    testImplementation libs.testing.junit
+    testImplementation libs.testing.coroutines
 }

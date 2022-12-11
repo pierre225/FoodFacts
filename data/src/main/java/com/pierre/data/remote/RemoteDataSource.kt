@@ -1,6 +1,5 @@
 package com.pierre.data.remote
 
-import android.accounts.NetworkErrorException
 import com.pierre.data.BuildConfig
 import com.pierre.data.remote.models.RemoteProductResponse
 import com.pierre.data.remote.service.RemoteService
