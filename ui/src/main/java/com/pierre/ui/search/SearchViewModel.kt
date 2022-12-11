@@ -47,6 +47,10 @@ class SearchViewModel @Inject constructor(
         }
     }
 
+    /**
+     * We consider a codebar to be valid if it has more than 12 chars
+     * Maybe we should find a better regex for this
+     */
     fun codeIsValid(code: String) =
         code.length >= 12
 

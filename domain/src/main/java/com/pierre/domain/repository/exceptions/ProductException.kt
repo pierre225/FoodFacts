@@ -5,3 +5,4 @@ sealed class ProductException(override val message: String) : Exception(message)
     data class ErrorResponseException(override val message: String = "The api returned an error") : ProductException(message)
     data class UnknownResponseException(override val message: String = "Unknown response") : ProductException(message)
 }
+

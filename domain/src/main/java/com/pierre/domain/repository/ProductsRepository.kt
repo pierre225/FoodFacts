@@ -5,6 +5,7 @@ import com.pierre.data.remote.models.RemoteProductResponse
 import com.pierre.domain.mapper.DomainProductMapper
 import com.pierre.domain.model.DomainProduct
 import com.pierre.domain.repository.exceptions.ProductException
+import java.util.*
 
 interface ProductsRepository {
 
@@ -17,8 +18,11 @@ internal class ProductsRepositoryImpl(
     private val mapper: DomainProductMapper,
 ) : ProductsRepository {
 
+    private val countryCode get() = Locale.getDefault().country
+    private val languageCode get() = Locale.getDefault().language
+
     override suspend fun product(code: String): DomainProduct {
-        val response = remoteDataSource.product(code)
+        val response = remoteDataSource.product(code, countryCode, languageCode)
 
         return when {
             response == null -> throw ProductException.NullResponseException()

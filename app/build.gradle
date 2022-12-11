@@ -7,8 +7,8 @@ plugins {
 
 android {
     defaultConfig {
-        versionCode = 3
-        versionName = "1.2"
+        versionCode = 1
+        versionName = "1.0"
         defaultConfig { testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner" }
     }
 
@@ -45,4 +45,10 @@ dependencies {
     kapt libs.hilt.compiler
     implementation libs.appCompat
     implementation libs.hilt.android
+
+    androidTestUtil 'androidx.test:orchestrator:1.4.2'
+    androidTestImplementation libs.androidTesting.testCore
+    androidTestImplementation libs.androidTesting.espresso
+    androidTestImplementation libs.androidTesting.hilt
+    androidTestImplementation libs.androidTesting.extJunit
 }

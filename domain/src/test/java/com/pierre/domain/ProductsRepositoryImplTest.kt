@@ -48,13 +48,13 @@ internal class ProductsRepositoryImplTest {
             // Silent exception
         }
 
-        coVerify { remoteDataSource.product(any()) }
+        coVerify { remoteDataSource.product(any(), any(), any()) }
     }
 
     @ExperimentalCoroutinesApi
     @Test
     fun `It throws a NullResponseException when the data source returns null`() = runTest {
-        coEvery { remoteDataSource.product(any()) }.returns(null)
+        coEvery { remoteDataSource.product(any(), any(), any()) }.returns(null)
 
         try {
             repository.product("123456")
@@ -73,11 +73,11 @@ internal class ProductsRepositoryImplTest {
             every { product }.returns(remoteProduct)
         }
 
-        coEvery { remoteDataSource.product(code) }.returns(successfulResponse)
+        coEvery { remoteDataSource.product(code, any(), any()) }.returns(successfulResponse)
 
         val domainProduct = repository.product(code)
         coVerifyOrder {
-            remoteDataSource.product(code)
+            remoteDataSource.product(code, any(), any())
             mapper.toDomain(remoteProduct)
         }
 
@@ -91,7 +91,7 @@ internal class ProductsRepositoryImplTest {
             every { product }.returns(null)
             every { errors }.returns(listOf(remoteError))
         }
-        coEvery { remoteDataSource.product(any()) }.returns(errorResponse)
+        coEvery { remoteDataSource.product(any(), any(), any()) }.returns(errorResponse)
 
         try {
             repository.product("3124")
@@ -107,7 +107,7 @@ internal class ProductsRepositoryImplTest {
             every { status }.returns("something")
             every { errors }.returns(listOf(remoteError))
         }
-        coEvery { remoteDataSource.product(any()) }.returns(errorResponse)
+        coEvery { remoteDataSource.product(any(), any(), any()) }.returns(errorResponse)
 
         try {
             repository.product("3124")
@@ -123,7 +123,7 @@ internal class ProductsRepositoryImplTest {
             every { product }.returns(null)
             every { errors }.returns(null)
         }
-        coEvery { remoteDataSource.product(any()) }.returns(errorResponse)
+        coEvery { remoteDataSource.product(any(), any(), any()) }.returns(errorResponse)
 
         try {
             repository.product("3124")

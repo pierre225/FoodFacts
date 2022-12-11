@@ -3,42 +3,24 @@ package com.pierre.ui.search
 import android.Manifest
 import android.content.pm.PackageManager
 import android.os.Bundle
-import android.util.Log
-import android.view.Display
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.OnClickListener
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.camera.core.CameraProvider
-import androidx.camera.core.CameraSelector
-import androidx.camera.core.ImageAnalysis
-import androidx.camera.core.ImageProxy
-import androidx.camera.core.Preview
-import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
-import androidx.core.text.HtmlCompat
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.viewbinding.ViewBinding
-import com.bumptech.glide.Glide
-import com.google.mlkit.vision.barcode.BarcodeScanner
-import com.google.mlkit.vision.barcode.BarcodeScannerOptions
-import com.google.mlkit.vision.barcode.BarcodeScanning
-import com.google.mlkit.vision.barcode.common.Barcode
-import com.google.mlkit.vision.common.InputImage
-import com.pierre.ui.MainActivity
 import com.pierre.ui.R
 import com.pierre.ui.base.BaseFragment
 import com.pierre.ui.databinding.FragmentSearchBinding
 import com.pierre.ui.search.model.SearchState
 import com.pierre.ui.search.model.UiProduct
-import com.pierre.ui.search.utils.ExceptionUtils
+import com.pierre.ui.search.utils.canRetry
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
-import java.util.concurrent.Executors
 
 @AndroidEntryPoint
 class SearchFragment : BaseFragment() {
@@ -66,7 +48,7 @@ class SearchFragment : BaseFragment() {
     }
 
     override fun onDestroyView() {
-        binding.scannerView.releaseCameraProvider()
+        binding.scannerCard.releaseCameraProvider()
         super.onDestroyView()
     }
 
@@ -88,7 +70,7 @@ class SearchFragment : BaseFragment() {
             is SearchState.Error -> displayErrorState(
                 e = state.e,
                 retry =
-                    if (ExceptionUtils.canRetry(state.e)) OnClickListener { search() }
+                    if (state.e.canRetry()) OnClickListener { search() }
                     else null)
         }
     }
@@ -104,7 +86,7 @@ class SearchFragment : BaseFragment() {
      * Show the scanner view and start scanning or hide and stop scanning
      */
     private fun displayScannerState(display: Boolean) {
-        binding.scannerView.apply {
+        binding.scannerCard.apply {
             visibility = if (display) View.VISIBLE else View.GONE
             if (display) startScanning(this@SearchFragment, searchViewModel.imageAnalysisUseCase)
             else stopScanning()

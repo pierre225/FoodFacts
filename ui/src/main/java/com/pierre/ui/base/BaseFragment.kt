@@ -10,7 +10,7 @@ import androidx.viewbinding.ViewBinding
 import com.google.android.material.snackbar.Snackbar
 import com.pierre.ui.R
 import com.pierre.ui.databinding.FragmentBaseBinding
-import com.pierre.ui.search.utils.ExceptionUtils
+import com.pierre.ui.search.utils.messageFromException
 import dagger.hilt.android.AndroidEntryPoint
 
 /**
@@ -58,7 +58,7 @@ abstract class BaseFragment : Fragment() {
         context?.also { context ->
             Snackbar.make(
                 baseBinding.baseRoot,
-                ExceptionUtils.messageFromException(e, context),
+                e.messageFromException(context),
                 Snackbar.LENGTH_LONG)
                 .setAction(R.string.retry, retry).show()
         }

@@ -3,22 +3,11 @@ package com.pierre.ui.search.views
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
-import android.view.View
 import android.widget.FrameLayout
-import android.widget.LinearLayout
-import android.widget.Toast
-import androidx.camera.core.CameraSelector
-import androidx.camera.core.Preview
-import androidx.camera.core.UseCase
-import androidx.camera.lifecycle.ProcessCameraProvider
-import androidx.cardview.widget.CardView
-import androidx.core.content.ContextCompat
 import androidx.core.text.HtmlCompat
-import androidx.lifecycle.LifecycleOwner
 import com.bumptech.glide.Glide
 import com.pierre.ui.R
 import com.pierre.ui.databinding.ProductCardBinding
-import com.pierre.ui.databinding.ScannerCardBinding
 import com.pierre.ui.search.model.UiProduct
 
 /**

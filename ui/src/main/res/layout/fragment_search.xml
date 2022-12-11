@@ -37,7 +37,7 @@
             layout="@layout/initial_card" />
 
         <com.pierre.ui.search.views.ScannerView
-            android:id="@+id/scannerView"
+            android:id="@+id/scannerCard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
