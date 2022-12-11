@@ -116,22 +116,11 @@ class SearchFragment : BaseFragment() {
     }
 
     private fun displaySuccessState(product: UiProduct?) {
-        binding.productCard.apply {
-            if (product == null) {
-                root.visibility = View.GONE
-            } else {
-                root.visibility = View.VISIBLE
-                name.text = product.name
-                brand.text = product.brand
-                description.text = product.description
-
-                product.ingredients?.also { ingredients.text = HtmlCompat.fromHtml(it, 1) }
-
-                Glide.with(image)
-                    .load(product.imageUrl)
-                    .placeholder(R.drawable.ic_placeholder)
-                    .into(image)
-            }
+        if (product != null) {
+            binding.productCard.visibility = View.VISIBLE
+            binding.productCard.setProduct(product)
+        } else {
+            binding.productCard.visibility = View.GONE
         }
     }
 

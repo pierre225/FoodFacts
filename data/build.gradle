@@ -13,4 +13,8 @@ dependencies {
     implementation libs.retrofit.core
     implementation libs.loggingInterceptor
     implementation libs.gson
+
+    testImplementation libs.testing.mockk
+    testImplementation libs.testing.junit
+    testImplementation libs.testing.coroutines
 }

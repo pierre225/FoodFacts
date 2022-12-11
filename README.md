@@ -1,15 +1,13 @@
 # ------------- WIP ------------------
-### Hours worked : 10
+### Hours worked : 12
 
 TODO :
-- bar code scanner
-- rework errors
-- rework with custom views
 - tests
 
 NICE TO HAVE :
-- error state as a card
-- Product card view could be a custom view
+- A cache strategy
+- keystore management
+- Analytics
 - CICD
 - THEME Management
 - UI
@@ -22,8 +20,44 @@ NICE TO HAVE :
 Description here
 
 ## Architecture
+### MVVM
+The application uses an MVVM architecture which is the most common one (in Android apps), the basic components of this architecture are :
+- The model: Containing the data of the application
+- The view: What will be shown on the screen, what the user will interact with
+- The viewmodel: acting like a bridge between the model and the view. It will be able to get the data and transform it so it can be used by the view. The view will be subscribed to it to be updated when needed.
+
+MVVM is the recommended pattern for Android app.
+
+### Modules
+In order to respect the "separation of concerns" concept, this app is separated in 3 modules :
+- The data module, exposing repositories and handling how the data is retrieved.
+- The domain module, supposed to encapsulate business logic.
+- The ui module, displaying the data on the screen, containing all the Android specific related code.
+The separation of these 3 modules also helps us to make the app testable. We can independently test each layer.
+
+### Flow
+I chose to use Kotlin Flow (over live data / Rx) for async tasks.
+I prefer Flow over LiveData mostly because LiveData is bound to Android while we can use Flow everywhere as it comes from Kotlin (like in our domain and data modules).
+Rx is a great reactive solution too, I simply had to make a choice ;)
+
 ## Libraries
 
+## Libraries
+### Hilt
+Hilt (dagger) for the dependency injection, reducing boilerplate code and making testing easier. (Alternative I used : Koin)
+
+### MockK
+MockK in order to mock classes while testing. (Alternative: Mockito)
+
+### Espresso
+///// todo
+
+### Retrofit (and Gson)
+Probably the best REST client to easily implement network calls.
+Works super well with Gson, to serialize and deserialize classes in Json
+
+### Glide
+Helping to load images from url (And transforms it if we need)
 
 ## Working flow
 ### Git Flow
@@ -40,3 +74,5 @@ We usually tag branches with some convention name in order to trigger actions on
 In this project, the feature branches have been named : 'ANDX-name-of-feature'
 The goal is to have a unique 'X' id for every feature so we keep track of who is working on which issue and what is the status (When working in agile team with a kanban board)
 
+## Areas of improvment
+-cache using room
