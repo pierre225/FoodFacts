@@ -1,0 +1,31 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+}
+
+android {
+    // View Binding
+    buildFeatures { viewBinding true }
+}
+
+dependencies {
+    implementation project(":domain")
+
+    kapt libs.hilt.compiler
+    implementation libs.hilt.android
+    implementation libs.navigation
+    implementation libs.material
+    implementation libs.appCompat
+    implementation libs.glide
+
+    implementation libs.camera.camera2
+    implementation libs.camera.lifecycle
+    implementation libs.camera.view
+    implementation libs.mlkitbarcode
+
+    testImplementation libs.testing.mockk
+    testImplementation libs.testing.junit
+    testImplementation libs.testing.coroutines
+}

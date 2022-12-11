@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="search_a_product_here">Search a product here</string>
+    <string name="retry">Retry</string>
+    <string name="camera_permission_denied">The camera permission is required to scan barcodes</string>
+    <string name="io_exception_message">Connection issue…</string>
+    <string name="unknown_exception_message">Something wrong happened…</string>
+    <string name="null_product_response_exception_message">No response from the DB…</string>
+    <string name="you_can_start_searching_for_a_bar_code">You can start searching for a bar code, a barcode needs at least 12 chars</string>
+    <string name="scan_a_product">Scan a product</string>
+</resources>

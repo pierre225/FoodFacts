@@ -1,0 +1,17 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+}
+
+dependencies {
+    implementation project(":data")
+
+    kapt libs.hilt.compiler
+    implementation libs.hilt.android
+
+    testImplementation libs.testing.mockk
+    testImplementation libs.testing.junit
+    testImplementation libs.testing.coroutines
+}

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--  ideally we defined a palette and reuse the same colors as much as possible  -->
+    <color name="white">#FFFFFF</color>
+    <color name="light_gray">#BBBBBB</color>
+    <color name="dark_grey">#333333</color>
+    <color name="black">#000000</color>
+
+    <!--  values that are also defined in dark mode  -->
+    <color name="background">@color/white</color>
+    <color name="semi_background">@color/light_gray</color>
+    <color name="foreground">@color/black</color>
+    <color name="semi_foreground">@color/dark_grey</color>
+    <color name="light_blue_400">#FF29B6F6</color>
+    <color name="light_blue_600">#FF039BE5</color>
+    <color name="gray_400">#FFBDBDBD</color>
+    <color name="gray_600">#FF757575</color>
+</resources>

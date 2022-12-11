@@ -1,0 +1,25 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+}
+android {
+    defaultConfig {
+        buildConfigField 'String', 'BASE_URL', '\"https://world.openfoodfacts.org/api/v3/\"'
+    }
+}
+
+dependencies {
+    kapt libs.hilt.compiler
+    implementation libs.hilt.android
+
+    implementation libs.retrofit.converter
+    implementation libs.retrofit.core
+    implementation libs.loggingInterceptor
+    implementation libs.gson
+
+    testImplementation libs.testing.mockk
+    testImplementation libs.testing.junit
+    testImplementation libs.testing.coroutines
+}
